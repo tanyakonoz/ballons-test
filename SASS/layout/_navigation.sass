@@ -1,0 +1,105 @@
+//стилизую новигационное меню-гамбургер
+.navigation
+    &__toggle
+        display: none
+    &__button
+        background-color: $color-white
+        height: 7rem
+        width: 7rem
+        border-radius: 50%
+        position: fixed
+        top: 7rem
+        right: 7rem
+        z-index: 200
+        text-align: center
+        cursor: pointer
+
+    &__background
+        width: 5rem
+        height: 5rem
+        border-radius: 50%
+        background: radial-gradient($color-brown-light, $color-brown-dark)
+        position: fixed
+        right: 8rem
+        top: 8rem
+        z-index: 100
+        transition: all .7s
+        /*transform: scale(80)        //задала фон нав меню//*/
+    &__nav
+        height: 100vh
+        position: fixed
+        top: 0
+        right: 0
+        z-index: 150
+        opacity: 0
+        width: 0
+        transition: all .3s cubic-bezier(0.68, -0.6, 0.32, 1.6)
+    &__list         //центрирую элементы ul //
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        list-style: none
+        width: 100%
+
+    &__item
+        text-align: center
+        &:not(:last-child)      //для каждого item 50px вниз//
+            margin-bottom: 5rem
+    &__link
+        &:link, &:visited
+            font-size: 4rem
+            color: $color-white
+            letter-spacing: .5rem
+            text-decoration: none
+            text-transform: uppercase
+            background: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%)
+            background-size: 220%
+            padding: 1rem 2rem      //пространство для ссылок//
+            transition: all .4s
+            display: inline-block
+        
+        &:hover, &:active
+            background-position: 100%
+            color: $color-brown-dark
+            transform: translateX(1rem)
+    &__toggle:checked ~ &__background
+        transform: scale(80)    //при нажатии на круг нав меню появляется задний фон //
+    &__toggle:checked ~ &__nav
+        width: 100%
+        opacity: 1
+
+
+    &__icon         //анимирую и стилизую гамбургер//
+        position: relative
+        margin-top: 37px
+        &,
+        &::before,
+        &::after
+            width: 30px
+            height: 2px
+            background: $color-black
+            display: inline-block
+        &::before,
+        &::after
+            content: ""
+            position: absolute
+            left: 0
+            transition: all .2s
+        &::before
+            top: -8px
+        &::after
+            top: 8px
+    &__button:hover &__icon::before
+        top: -10px
+    &__button:hover &__icon::after
+        top: 10px
+
+    &__toggle:checked + &__button &__icon       //делаем крестик//
+        background: transparent
+    &__toggle:checked + &__button &__icon::before
+        top: 0
+        transform: rotate(135deg)
+    &__toggle:checked + &__button &__icon::after
+        top: 0
+        transform: rotate(-135deg)

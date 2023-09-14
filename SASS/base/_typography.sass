@@ -1,0 +1,66 @@
+//Все что касается текста Заголовок и его оформление
+body
+    font-family: "Lato", sans-serif
+    font-weight: 400
+    color: $color-gray
+    font-size: $font-size-paragraph
+    letter-spacing: .2rem               //межбуквенное расстояние в тексте//
+    
+.title-first
+    color: $color-white
+    &__main
+        display: block      //span делаю блочным элементом//
+        font-weight: 800
+        font-size: 5rem
+        line-height: 6rem
+        letter-spacing: 1rem
+        text-transform: uppercase           //все буквы заглавными//
+        margin-bottom: 1rem                 //отодвигаю нижнюю строчку заголовка//
+        animation-name: leftToRight         //добавляю анимацию//
+        animation-duration: 1.7s            //продолжительность анимацию//
+        animation-delay: 1s                 //задержка анимацию//
+        animation-timing-function: ease     //делает анимацию более плавной//
+        backface-visibility: hidden         //нормализирую повидение анимации//
+    &__secondary
+        display: block
+        font-weight: 100
+        font-size: 4rem
+        line-height: 4.8rem
+        letter-spacing: .5rem
+        animation-name: RightToLeft
+        animation-duration: 1.7s
+        animation-delay: 1s
+        backface-visibility: hidden         //нормализирует поведение анимации//
+        margin-bottom: 6.5rem               //отодвигаю кнопку с помощью род элемента//
+
+.title-secondary
+    text-align: center              //центрирую заголов 2-го уровня//
+    display: inline-block
+    font-size: $font-size-paragraph-h2
+    letter-spacing: 1rem            //межбуквенное расстояние//
+    text-transform: uppercase       //все буквы заглавными//
+    font-weight: 800
+    background: linear-gradient(90deg, rgba($color-brown-light, 0.7) 0.03%, rgba($color-brown-dark, 0.7) 99.94%)
+    -webkit-background-clip: text
+    color: transparent              //делаю буквы прозрачныыми//
+    transition: all .4s             //добавляю заголовку 2-го уровня плавности//
+    backface-visibility: hidden     //нормализирует поведение тени 2-го заголовка//
+    &:hover
+        transform: skewY(2deg) skewX(15deg) scale(1.1)
+        text-shadow: $shadow-h2       //задаю тень 2-му заголовку//
+    &_white
+        color: $color-white
+
+    
+//настраиваю заголовок 3-го уровня//
+.title-fhird
+    font-size: $font-size-paragraph-h3
+    letter-spacing: .2rem
+    text-transform: uppercase
+    font-weight: 700
+
+.paragraph
+    font-size: $font-size-paragraph
+    letter-spacing: .2rem
+    line-height: 140%               //пространства между строками//
+    font-weight: 400

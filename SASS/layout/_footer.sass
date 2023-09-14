@@ -1,0 +1,30 @@
+//Стилизую футер
+.footer
+    padding: 8rem
+    background: #333333
+    &__logo
+        width: 12rem
+    &__list
+        list-style: none        //убираю точки//
+        text-align: center      //центрируб список меню футера//
+    &__item
+        display: inline-block       //становлю в оду линию//
+        &:not(:last-child)
+            margin-right: 5rem
+            
+    &__link
+        &:link, &:visited
+            color: $color-gray
+            text-decoration: none
+            text-transform: uppercase
+            font-size: $font-size-paragraph
+            letter-spacing: .2rem
+            font-weight: 300
+            display: inline-block       //чтоб заработал трансформ для меню футера//
+            transition: all .3s
+        &:active
+        &:hover
+            transform: rotate(5deg) scale(1.2)
+            color: $color-brown-dark
+            text-shadow: $shadow-h2
+       
